@@ -122,15 +122,15 @@ SELECT
         {
             'temperature': 0.4,
             'top_p': 0.9,
-            'max_tokens': 300
+            'max_tokens': 1000
         }
     ) AS EMAIL_RESPONSE_JSON,
     EMAIL_RESPONSE_JSON:choices[0]:messages::string AS EMAIL_RESPONSE,
-    TRY_TO_TIMESTAMP(EMAIL_RESPONSE:created::string) AS CREATED,
-    EMAIL_RESPONSE:model::string AS MODEL,
-    EMAIL_RESPONSE:usage:completion_tokens::number AS COMPLETION_TOKENS,
-    EMAIL_RESPONSE:usage:prompt_tokens::number AS PROMPT_TOKENS,
-    EMAIL_RESPONSE:usage:total_tokens::number AS TOTAL_TOKENS
+    TRY_TO_TIMESTAMP(EMAIL_RESPONSE_JSON:created::string) AS CREATED,
+    EMAIL_RESPONSE_JSON:model::string AS MODEL,
+    EMAIL_RESPONSE_JSON:usage:completion_tokens::number AS COMPLETION_TOKENS,
+    EMAIL_RESPONSE_JSON:usage:prompt_tokens::number AS PROMPT_TOKENS,
+    EMAIL_RESPONSE_JSON:usage:total_tokens::number AS TOTAL_TOKENS
 FROM
     LLM_CORTEX_DEMO_DB.STAGE.TRANSCRIPT
 WHERE
@@ -177,7 +177,7 @@ SELECT
                            '\n2. Convert the transcript into a structured conversation with each statement tagged as either caller or agent. ' ||
                            '\n3. Respond strictly in JSON format with a top-level "dialogue" key. ' ||
                            '\n4. Generate an "order" field that records the order of the conversation. ' ||
-                           '\n5. Each entry must include the fields "order", "role", "name", and "speach". '
+                           '\n5. Each entry must include the fields "order", "role", "name", and "speech". '
             },
             {
                 'role': 'user',
@@ -200,9 +200,9 @@ SELECT
                                     'order': { 'type': 'integer' },
                                     'role': { 'type': 'string' },
                                     'name': { 'type': 'string' },
-                                    'speach': { 'type': 'string' }
+                                    'speech': { 'type': 'string' }
                                 },
-                                'required': ['order', 'role', 'name', 'speach']
+                                'required': ['order', 'role', 'name', 'speech']
                             }
                         }
                     },
@@ -234,7 +234,7 @@ FROM LLM_CORTEX_DEMO_DB.STAGE.TRANSCRIPT_DIALOGUE;
 -- a tabular format with the following fields:
 -- • ROLE
 -- • NAME
--- • SPEACH
+-- • speech
 -- • ORDER
 -- Enables easier analysis and visualization of the dialogue.
 --------------------------------------------------------------------------
@@ -243,7 +243,7 @@ SELECT
     FILE_NAME,    
     d.value:"role"::STRING AS "ROLE",
     d.value:"name"::STRING  AS "NAME",
-    d.value:"speach"::STRING AS "SPEACH",
+    d.value:"speech"::STRING AS "SPEECH",
     d.value:"order"::NUMBER AS "ORDER"
 FROM
     LLM_CORTEX_DEMO_DB.STAGE.TRANSCRIPT_DIALOGUE,
