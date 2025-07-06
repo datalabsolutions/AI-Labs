@@ -1,0 +1,204 @@
+name: stock_prices
+tables:
+  - name: STOCK_PRICE
+    base_table:
+      database: DATALAB_DBT_INTERNAL_DEV
+      schema: DWH
+      table: STOCK_PRICE
+    dimensions:
+      - name: TICKER
+        expr: TICKER
+        data_type: VARCHAR(16777216)
+        description: Stock ticker symbol representing the unique identifier for a publicly traded company.
+        synonyms:
+          - stock_symbol
+          - company_code
+          - security_id
+          - instrument_id
+          - equity_code
+        cortex_search_service:
+          database: DATALAB_DBT_INTERNAL_DEV
+          schema: DWH
+          service: STOCK_PRICE_SEARCH_SERVICE
+      - name: ASSET_CLASS
+        expr: ASSET_CLASS
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - ETF-Index Fund Shares
+          - Equity
+          - Global Shares
+        description: The type of investment or financial instrument, such as a fund or stock, that the stock price is associated with.
+        synonyms:
+          - investment_type
+          - asset_category
+          - security_type
+          - financial_instrument
+          - investment_category
+      - name: PRIMARY_EXCHANGE_CODE
+        expr: PRIMARY_EXCHANGE_CODE
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - PSE
+          - NYS
+          - ASE
+        description: The primary exchange on which the stock is listed, such as the New York Stock Exchange (NYS), American Stock Exchange (ASE), or Philadelphia Stock Exchange (PSE).
+        synonyms:
+          - exchange_id
+          - primary_market_code
+          - main_exchange_code
+          - stock_exchange_code
+          - listing_exchange_code
+          - primary_listing_code
+      - name: PRIMARY_EXCHANGE_NAME
+        expr: PRIMARY_EXCHANGE_NAME
+        data_type: VARCHAR(16777216)
+        sample_values:
+          - NEW YORK STOCK EXCHANGE
+          - NYSE ARCA
+        description: The name of the primary exchange where the stock is listed, such as the New York Stock Exchange (NYSE) or NYSE Arca.
+        synonyms:
+          - main_exchange_name
+          - primary_market_name
+          - primary_trading_exchange
+          - main_trading_platform
+          - primary_stock_exchange
+    time_dimensions:
+      - name: DATE
+        expr: DATE
+        data_type: DATE
+        sample_values:
+          - '2024-12-05'
+          - '2024-12-04'
+          - '2024-10-17'
+        description: Date of stock price record.
+        synonyms:
+          - day
+          - timestamp
+          - calendar_date
+          - datestamp
+          - calendar_day
+          - timestamp_date
+    facts:
+      - name: VOLUME
+        expr: VOLUME
+        data_type: FLOAT
+        sample_values:
+          - '13636'
+          - '955'
+          - '11122'
+        description: The total number of shares traded for a particular stock on a given day.
+        synonyms:
+          - trading_volume
+          - shares_traded
+          - stock_volume
+          - trade_volume
+          - market_volume
+          - daily_volume
+          - shares_turnover
+      - name: OPEN_PRICE
+        expr: OPEN_PRICE
+        data_type: FLOAT
+        sample_values:
+          - '31.48'
+          - '27.21'
+          - '19.29'
+        description: The opening price of a stock on a given trading day, representing the initial price at which the stock was traded when the market opened.
+        synonyms:
+          - opening_price
+          - pre_market_open
+          - morning_open
+          - initial_price
+          - starting_price
+          - beginning_price
+      - name: LOW_PRICE
+        expr: LOW_PRICE
+        data_type: FLOAT
+        sample_values:
+          - '13.85'
+          - '21.68'
+          - '8.51'
+        description: The lowest price of the stock on a given day.
+        synonyms:
+          - minimum_price
+          - lowest_price
+          - all_day_low
+          - cheapest_price
+          - rock_bottom_price
+          - bottom_price
+          - lowest_value
+      - name: HIGH_PRICE
+        expr: HIGH_PRICE
+        data_type: FLOAT
+        sample_values:
+          - '46.54'
+          - '78.9'
+          - '3.52'
+        description: The highest price of the stock on a given trading day.
+        synonyms:
+          - max_price
+          - peak_price
+          - highest_value
+          - top_price
+          - maximum_price
+          - all_day_high
+          - highest_level
+      - name: CLOSE_PRICE
+        expr: CLOSE_PRICE
+        data_type: FLOAT
+        sample_values:
+          - '90.155'
+          - '11.275'
+          - '4.1'
+        description: The closing price of a stock on a given trading day, representing the final price at which the stock was traded at the end of the day.
+        synonyms:
+          - final_price
+          - closing_value
+          - end_of_day_price
+          - market_close
+          - settlement_price
+          - end_price
+    metrics:
+      - expr: COUNT(DISTINCT TICKER)
+        name: STOCK_COUNT
+        description: Stock Count
+verified_queries:
+  - name: Average Stock Price
+    question: What is the average closing price for Apple in 2025?
+    use_as_onboarding_question: true
+    sql: SELECT AVG(CLOSE_PRICE) FROM STOCK_PRICE WHERE TICKER = 'AAPL' AND YEAR(DATE) = 2025
+    verified_by: Douglas Day
+    verified_at: 1751253252
+  - name: Top 5 Stocks by Volume
+    question: Show the top 5 stocks by volume in the last 30 days
+    use_as_onboarding_question: false
+    sql: SELECT TICKER, SUM(VOLUME) AS TOTAL_VOLUME FROM STOCK_PRICE WHERE DATE >= CURRENT_DATE - 30 GROUP BY TICKER ORDER BY TOTAL_VOLUME DESC LIMIT 5
+    verified_by: Douglas Day
+    verified_at: 1751253416
+  - name: Tesla High Price in January
+    question: What was the highest price for Tesla in January 2024?
+    use_as_onboarding_question: false
+    sql: SELECT MAX(HIGH_PRICE) FROM STOCK_PRICE WHERE TICKER = 'TSLA' AND DATE BETWEEN '2024-01-01' AND '2024-01-31'
+    verified_by: Douglas Day
+    verified_at: 1751253392
+  - name: Best Performing Stock by Return
+    question: Which stock had the highest average daily return over the past year?
+    use_as_onboarding_question: false
+    sql: SELECT TICKER, AVG((CLOSE_PRICE - OPEN_PRICE)/NULLIF(OPEN_PRICE, 0)) AS AVG_RETURN FROM STOCK_PRICE WHERE DATE >= CURRENT_DATE - 365 GROUP BY TICKER ORDER BY AVG_RETURN DESC LIMIT 1
+    verified_by: Douglas Day
+    verified_at: 1751253252
+  - name: Top 10 Most Volatile Stocks by Max Daily Range
+    question: Which 10 stocks had the highest daily trading volatility percentage % in the last 90 days?
+    use_as_onboarding_question: true
+    sql: SELECT TICKER, MAX((HIGH_PRICE - LOW_PRICE) / NULLIF(OPEN_PRICE, 0)) AS DAILY_VOLATILITY_PERCENTAGE FROM STOCK_PRICE WHERE DATE >= CURRENT_DATE - 90 GROUP BY TICKER HAVING NOT IS_NULL_VALUE(DAILY_VOLATILITY_PERCENTAGE) ORDER BY DAILY_VOLATILITY_PERCENTAGE DESC LIMIT 10
+    verified_by: Douglas Day
+    verified_at: 1751711538
+  - name: Highest Volatility Trading Day Per Stock
+    question: What day did each of the top 10 most volatile stocks have their highest daily volatility in the last 90 days?
+    use_as_onboarding_question: true
+    sql: SELECT TICKER, DATE, (HIGH_PRICE - LOW_PRICE) / NULLIF(OPEN_PRICE, 0) AS DAILY_VOLATILITY_PCT FROM STOCK_PRICE WHERE DATE >= CURRENT_DATE - 90 AND OPEN_PRICE <> 0 QUALIFY ROW_NUMBER() OVER (PARTITION BY TICKER ORDER BY DAILY_VOLATILITY_PCT DESC) = 1 ORDER BY DAILY_VOLATILITY_PCT DESC LIMIT 10
+    verified_by: Douglas Day
+    verified_at: 1751255237
+custom_instructions: |-
+  Percentages must be displayed in the format: #,00%
+  Volume numbers must be formatted as: #,00
+  Price numbers must be formatted as: #,00.00
