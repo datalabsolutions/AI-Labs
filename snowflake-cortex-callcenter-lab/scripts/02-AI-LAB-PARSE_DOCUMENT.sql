@@ -32,23 +32,19 @@ CREATE OR REPLACE TABLE LLM_CORTEX_DEMO_DB.STAGE.TRANSCRIPT (
 
 INSERT INTO LLM_CORTEX_DEMO_DB.STAGE.TRANSCRIPT
 SELECT 
-    FILE_NAME,
+    SPLIT_PART(RELATIVE_PATH, '/', -1) AS FILE_NAME,
     TO_VARCHAR
     (
         SNOWFLAKE.CORTEX.PARSE_DOCUMENT(
-            @LLM_CORTEX_DEMO_DB.RAW.INT_STAGE_DOC_RAW,
-            FILE_PATH,
+            '@LLM_CORTEX_DEMO_DB.RAW.INT_STAGE_DOC_RAW',
+            RELATIVE_PATH,
             { 'mode': 'LAYOUT' }  
         ):content::string
     ) AS TRANSCRIPT
 FROM
-(
-    SELECT DISTINCT
-        METADATA$FILENAME AS FILE_PATH,
-        SPLIT_PART(METADATA$FILENAME, '/', -1) AS FILE_NAME
-    FROM
-        @LLM_CORTEX_DEMO_DB.RAW.INT_STAGE_DOC_RAW/
-) AS A;
+    DIRECTORY('@LLM_CORTEX_DEMO_DB.RAW.INT_STAGE_DOC_RAW')
+WHERE
+    RELATIVE_PATH LIKE '%.pdf';
 
 --------------------------------------------------------------------------
 -- Step 4: Preview Extracted Data
