@@ -40,8 +40,8 @@ CREATE OR REPLACE TABLE LLM_CORTEX_DEMO_DB.STAGE.TRANSCRIPT_CALLER
 SELECT TOP 1
     FILE_NAME,
     SNOWFLAKE.CORTEX.EXTRACT_ANSWER(
-        'What is the name of the customer speaking in this transcript? Only return the name.',
-        TRANSCRIPT
+        TRANSCRIPT,
+        'What is the name of the customer speaking in this transcript? Only return the name.'
     ) AS CALLER_NAME,
     TRANSCRIPT AS TRANSCRIPT
 FROM 
