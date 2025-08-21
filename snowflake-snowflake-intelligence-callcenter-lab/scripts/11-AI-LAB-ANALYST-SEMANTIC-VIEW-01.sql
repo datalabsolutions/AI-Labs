@@ -5,7 +5,7 @@
 --------------------------------------------------------------------------
 
 USE DATABASE CALL_CENTER_DB;
-USE SCHEMA STAGE;
+USE SCHEMA ANALYTICS;
 USE WAREHOUSE USER_STD_XSMALL_WH;
 
 
