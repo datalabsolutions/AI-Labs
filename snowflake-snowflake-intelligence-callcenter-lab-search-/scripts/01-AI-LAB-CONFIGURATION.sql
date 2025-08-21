@@ -5,7 +5,7 @@
 -- It ensures the database exists before continuing with the rest of the setup.
 --------------------------------------------------------------------------
 
-CREATE DATABASE IF NOT EXISTS LLM_CORTEX_DEMO_DB;
+CREATE DATABASE IF NOT EXISTS  CALL_CENTER_DB;
 
 --------------------------------------------------------------------------
 -- Step 2: Create Warehouse
@@ -28,15 +28,14 @@ WITH
 --------------------------------------------------------------------------
 -- Step 3: Create Schemas
 --------------------------------------------------------------------------
--- This step creates two schemas within the LLM_CORTEX_DEMO_DB database:
+-- This step creates two schemas within the CALL_CENTER_DB database:
 -- - RAW: for storing unprocessed or ingested data
 -- - STAGE: for temporary or intermediate processed data
--- - ANALYTICS: for storing processed and aggregated data
 --------------------------------------------------------------------------
 
-CREATE SCHEMA IF NOT EXISTS LLM_CORTEX_DEMO_DB.RAW;
-CREATE SCHEMA IF NOT EXISTS LLM_CORTEX_DEMO_DB.STAGE;
-CREATE SCHEMA IF NOT EXISTS LLM_CORTEX_DEMO_DB.ANALYTICS;
+CREATE SCHEMA IF NOT EXISTS CALL_CENTER_DB.RAW;
+CREATE SCHEMA IF NOT EXISTS CALL_CENTER_DB.STAGE;
+CREATE SCHEMA IF NOT EXISTS CALL_CENTER_DB.ANALYTICS;
 
 --------------------------------------------------------------------------
 -- Step 4: Create Internal Stage for PDFs
@@ -45,8 +44,9 @@ CREATE SCHEMA IF NOT EXISTS LLM_CORTEX_DEMO_DB.ANALYTICS;
 -- The stage supports directory table creation and uses Snowflake-managed SSE encryption.
 --------------------------------------------------------------------------
 
-CREATE OR REPLACE STAGE LLM_CORTEX_DEMO_DB.RAW.INT_STAGE_DOC_RAW
+CREATE OR REPLACE STAGE CALL_CENTER_DB.RAW.INT_STAGE_DOC_RAW
     DIRECTORY = ( ENABLE = true )
     ENCRYPTION = ( TYPE = 'SNOWFLAKE_SSE' );
 
+--------------------------------------------------------------------------
 --------------------------------------------------------------------------
