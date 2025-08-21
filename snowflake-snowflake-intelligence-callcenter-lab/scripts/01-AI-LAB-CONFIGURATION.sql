@@ -48,5 +48,18 @@ CREATE OR REPLACE STAGE CALL_CENTER_DB.RAW.INT_STAGE_DOC_RAW
     DIRECTORY = ( ENABLE = true )
     ENCRYPTION = ( TYPE = 'SNOWFLAKE_SSE' );
 
+
+--------------------------------------------------------------------------
+-- Step 5: Ensure Snowflake Intelligence is configured
+--------------------------------------------------------------------------
+-- This step defines an internal stage in the RAW schema to store uploaded PDF documents.
+--------------------------------------------------------------------------
+
+CREATE DATABASE IF NOT EXISTS SNOWFLAKE_INTELLIGENCE;
+GRANT USAGE ON DATABASE SNOWFLAKE_INTELLIGENCE TO ROLE PUBLIC;
+
+CREATE SCHEMA IF NOT EXISTS SNOWFLAKE_INTELLIGENCE.AGENTS;
+GRANT USAGE ON SCHEMA SNOWFLAKE_INTELLIGENCE.AGENTS TO ROLE PUBLIC;
+
 --------------------------------------------------------------------------
 --------------------------------------------------------------------------
