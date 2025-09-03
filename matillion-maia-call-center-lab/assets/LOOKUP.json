@@ -1,0 +1,200 @@
+[
+  {
+    "LOOKUP_FILTER": "CALL_TYPE",
+    "LOOKUP_ID": 1,
+    "LOOKUP_CODE": "BILLING",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Billing",
+    "LOOKUP_LONG_NAME": "Billing Enquiry",
+    "LOOKUP_DESC": "Billing enquiry. Questions about charges, payments, or invoices.",
+    "LOOKUP_SORT_ORDER": 1
+  },
+  {
+    "LOOKUP_FILTER": "CALL_TYPE",
+    "LOOKUP_ID": 2,
+    "LOOKUP_CODE": "TECHNICAL_SUPPORT",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Technical Support",
+    "LOOKUP_LONG_NAME": "Technical Support",
+    "LOOKUP_DESC": "Technical support. Help resolving technical issues or access problems.",
+    "LOOKUP_SORT_ORDER": 2
+  },
+  {
+    "LOOKUP_FILTER": "CALL_TYPE",
+    "LOOKUP_ID": 3,
+    "LOOKUP_CODE": "COMPLAINT",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Complaint",
+    "LOOKUP_LONG_NAME": "Complaint",
+    "LOOKUP_DESC": "Complaint. Customer expresses dissatisfaction or reports a problem.",
+    "LOOKUP_SORT_ORDER": 3
+  },
+  {
+    "LOOKUP_FILTER": "CALL_TYPE",
+    "LOOKUP_ID": 4,
+    "LOOKUP_CODE": "INFORMATION",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Information",
+    "LOOKUP_LONG_NAME": "Information Request",
+    "LOOKUP_DESC": "Information request. Caller asks for information or clarification.",
+    "LOOKUP_SORT_ORDER": 4
+  },
+  {
+    "LOOKUP_FILTER": "CALL_TYPE",
+    "LOOKUP_ID": 5,
+    "LOOKUP_CODE": "SALES",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Sales",
+    "LOOKUP_LONG_NAME": "Sales/Upgrade",
+    "LOOKUP_DESC": "Sales/upgrade. Interest in buying or upgrading a product or service.",
+    "LOOKUP_SORT_ORDER": 5
+  },
+  {
+    "LOOKUP_FILTER": "CALL_TYPE",
+    "LOOKUP_ID": 6,
+    "LOOKUP_CODE": "CANCELLATION",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Cancellation",
+    "LOOKUP_LONG_NAME": "Cancellation",
+    "LOOKUP_DESC": "Cancellation. Caller wants to cancel a subscription or service.",
+    "LOOKUP_SORT_ORDER": 6
+  },
+  {
+    "LOOKUP_FILTER": "CALL_TYPE",
+    "LOOKUP_ID": 7,
+    "LOOKUP_CODE": "OTHER",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Other",
+    "LOOKUP_LONG_NAME": "Other",
+    "LOOKUP_DESC": "Other. Does not fit known categories; requires manual review or enrichment.",
+    "LOOKUP_SORT_ORDER": 7
+  },
+  {
+    "LOOKUP_FILTER": "CALL_PRIORITY",
+    "LOOKUP_ID": 1,
+    "LOOKUP_CODE": "LOW",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Low",
+    "LOOKUP_LONG_NAME": "Low Urgency",
+    "LOOKUP_DESC": "Low urgency. Items that can be solved within 3 days.",
+    "LOOKUP_SORT_ORDER": 1
+  },
+  {
+    "LOOKUP_FILTER": "CALL_PRIORITY",
+    "LOOKUP_ID": 2,
+    "LOOKUP_CODE": "MEDIUM",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Medium",
+    "LOOKUP_LONG_NAME": "Medium Urgency",
+    "LOOKUP_DESC": "Medium urgency. Target resolution within 24-72 hours.",
+    "LOOKUP_SORT_ORDER": 2
+  },
+  {
+    "LOOKUP_FILTER": "CALL_PRIORITY",
+    "LOOKUP_ID": 3,
+    "LOOKUP_CODE": "HIGH",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "High",
+    "LOOKUP_LONG_NAME": "High Urgency",
+    "LOOKUP_DESC": "High urgency. Requires action within 24 hours.",
+    "LOOKUP_SORT_ORDER": 3
+  },
+  {
+    "LOOKUP_FILTER": "CALL_PRIORITY",
+    "LOOKUP_ID": 4,
+    "LOOKUP_CODE": "CRITICAL",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Critical",
+    "LOOKUP_LONG_NAME": "Critical Urgency",
+    "LOOKUP_DESC": "Critical urgency. Immediate action required; severe impact likely.",
+    "LOOKUP_SORT_ORDER": 4
+  },
+  {
+    "LOOKUP_FILTER": "CALL_SENTIMENT",
+    "LOOKUP_ID": 1,
+    "LOOKUP_CODE": "POSITIVE",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 1,
+    "LOOKUP_SHORT_NAME": "Positive",
+    "LOOKUP_LONG_NAME": "Positive",
+    "LOOKUP_DESC": "Positive, Very Satisfied.",
+    "LOOKUP_SORT_ORDER": 1
+  },
+  {
+    "LOOKUP_FILTER": "CALL_SENTIMENT",
+    "LOOKUP_ID": 2,
+    "LOOKUP_CODE": "NEUTRAL",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Neutral",
+    "LOOKUP_LONG_NAME": "Neutral",
+    "LOOKUP_DESC": "Neutral, No strong feelings.",
+    "LOOKUP_SORT_ORDER": 2
+  },
+  {
+    "LOOKUP_FILTER": "CALL_SENTIMENT",
+    "LOOKUP_ID": 3,
+    "LOOKUP_CODE": "NEGATIVE",
+    "LOOKUP_LOWER_BOUND": -1,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Negative",
+    "LOOKUP_LONG_NAME": "Negative",
+    "LOOKUP_DESC": "Negative, Dissatisfied",
+    "LOOKUP_SORT_ORDER": 3
+  },
+  {
+    "LOOKUP_FILTER": "CALL_SENTIMENT",
+    "LOOKUP_ID": 4,
+    "LOOKUP_CODE": "MIXED",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Mixed",
+    "LOOKUP_LONG_NAME": "Mixed",
+    "LOOKUP_DESC": "Mixed, Both Positive and Negative",
+    "LOOKUP_SORT_ORDER": 4
+  },
+  {
+    "LOOKUP_FILTER": "CALL_STATUS",
+    "LOOKUP_ID": 1,
+    "LOOKUP_CODE": "YES",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Resolved",
+    "LOOKUP_LONG_NAME": "Issue Resolved",
+    "LOOKUP_DESC": "Issue resolved. Problem fully addressed during the interaction.",
+    "LOOKUP_SORT_ORDER": 1
+  },
+  {
+    "LOOKUP_FILTER": "CALL_STATUS",
+    "LOOKUP_ID": 2,
+    "LOOKUP_CODE": "PARTIAL",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Partial",
+    "LOOKUP_LONG_NAME": "Partially Resolved",
+    "LOOKUP_DESC": "Partially resolved. Follow-ups or actions still required.",
+    "LOOKUP_SORT_ORDER": 2
+  },
+  {
+    "LOOKUP_FILTER": "CALL_STATUS",
+    "LOOKUP_ID": 3,
+    "LOOKUP_CODE": "NO",
+    "LOOKUP_LOWER_BOUND": 0,
+    "LOOKUP_UPPER_BOUND": 0,
+    "LOOKUP_SHORT_NAME": "Not Resolved",
+    "LOOKUP_LONG_NAME": "Not Resolved",
+    "LOOKUP_DESC": "Not resolved. Issue unresolved; escalation likely.",
+    "LOOKUP_SORT_ORDER": 3
+  }
+]
