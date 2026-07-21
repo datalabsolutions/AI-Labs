@@ -1,0 +1,43 @@
+-- =====================================================================
+-- Module 07: Getting Data from Snowflake Marketplace
+-- Lab: Getting Started with Snowflake (Zero to Snowflake)
+-- =====================================================================
+--
+-- ---------------------------------------------------------------------
+-- Step 1: Access and Review the Marketplace
+-- ---------------------------------------------------------------------
+-- Make sure you're using the ACCOUNTADMIN role, then navigate to
+-- Data Products > Marketplace.
+USE ROLE ACCOUNTADMIN;
+
+-- Find a listing
+-- ----------------
+-- Type "Snowflake Public Data (Free)" in the Marketplace search box,
+-- scroll through the results, and select Snowflake Public Data (Free)
+-- (provided by Snowflake Public Data).
+--
+-- On the listing page you can review the data dictionary, sample
+-- queries, documentation links, and cloud region availability. Click
+-- Get to make the data available in your account, review the dialog,
+-- and click Get again. Click Done, or run the provided sample queries.
+--
+-- If you chose "Query Data", a new worksheet opens in a new tab:
+--   1. Set your context.
+--   2. Select the query you want to run (or place your cursor in it).
+--   3. Click Run/Play (or the keyboard shortcut).
+--   4. View results in the bottom pane.
+--   5. When done, click the Home icon.
+--
+-- Then:
+--   1. Click Data > Databases.
+--   2. Click the SNOWFLAKE_PUBLIC_DATA_FREE database.
+--   3. Review the schemas, tables, and views available to query.
+--
+-- That's it — no databases, tables, views, or ETL process had to be
+-- created. The data is queried directly, e.g.:
+-- SELECT * FROM SNOWFLAKE_PUBLIC_DATA_FREE.PUBLIC_DATA_FREE.STOCK_PRICE_TIMESERIES LIMIT 10;
+--
+-- NOTE: This module is a UI-driven Marketplace "Get" flow — there are
+-- no required SQL statements beyond the optional exploratory SELECT
+-- above. The Marketplace data is queried directly in Module 08.
+-- Continue to 08-SQL-LAB-QUERYING-RESULTS-CACHE-AND-CLONING.sql.

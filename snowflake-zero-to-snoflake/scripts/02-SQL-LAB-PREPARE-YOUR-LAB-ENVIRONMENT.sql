@@ -1,0 +1,30 @@
+-- =====================================================================
+-- Module 02: Prepare Your Lab Environment
+-- Lab: Getting Started with Snowflake (Zero to Snowflake)
+-- =====================================================================
+--
+-- ---------------------------------------------------------------------
+-- Step 1: Prepare Your Lab Environment
+-- ---------------------------------------------------------------------
+-- 1. If you haven't already, register for a Snowflake free 30-day
+--    trial: https://signup.snowflake.com/developers
+--    This lab assumes you are using a new Snowflake account created by
+--    registering for a trial.
+--
+-- 2. The Snowflake edition (Standard, Enterprise, Business Critical,
+--    etc.), cloud provider (AWS, Azure, GCP), and Region (US East, EU,
+--    etc.) you use for this lab do not matter. However, it's suggested
+--    you select the region physically closest to you and Enterprise
+--    (the most popular offering) as your Snowflake edition.
+--
+-- 3. After registering, you will receive an email with an activation
+--    link and URL for accessing your Snowflake account.
+--
+-- Logging into the Snowflake User Interface (UI)
+-- ------------------------------------------------
+-- Open a browser window and enter the URL of your Snowflake 30-day
+-- trial environment that was sent with your registration email. Enter
+-- the username and password that you specified during registration.
+--
+-- NOTE: This module is entirely UI-based account setup — there are no
+-- SQL statements to run. Continue to 03-SQL-LAB-THE-SNOWFLAKE-USER-INTERFACE.sql.

@@ -1,0 +1,54 @@
+-- =====================================================================
+-- Module 03: The Snowflake User Interface
+-- Lab: Getting Started with Snowflake (Zero to Snowflake)
+-- =====================================================================
+--
+-- ---------------------------------------------------------------------
+-- Step 1: Review the Snowflake User Interface Guide
+-- ---------------------------------------------------------------------
+-- This module tours the Snowsight UI. No SQL is executed — it's a
+-- guided walk-through of the following areas:
+--
+--   Projects > Worksheets
+--     Submit SQL queries, perform DDL/DML, and view results. A new
+--     worksheet is created by clicking + on the top right.
+--
+--   Projects > Dashboards
+--     Flexible displays of one or more charts (tiles), built from
+--     queries run in a worksheet.
+--
+--   Data > Databases
+--     Create, clone, drop, or transfer ownership of databases; load
+--     data via the UI.
+--
+--   Data Products > Marketplace
+--     Browse and consume datasets shared by providers (Public or
+--     Personalized).
+--
+--   Data Products > Private Sharing
+--     Configure secure sharing of Snowflake tables between accounts
+--     without copying data.
+--
+--   Monitoring > Query History / Copy History / Task History /
+--   Dynamic Tables / Governance
+--     Track usage, ingestion status, task runs, and access history.
+--
+--   Admin > Warehouses
+--     Create and manage virtual warehouses (compute resources). A
+--     warehouse called COMPUTE_WH already exists in your trial
+--     environment.
+--
+--   Admin > Cost Management
+--     Overview of account consumption, budgets, and resource monitors.
+--
+--   Admin > Users & Roles
+--     View/manage roles, their hierarchies, and users. You are
+--     currently in the default role of SYSADMIN and will stay in this
+--     role for most of the lab.
+--
+-- SYSADMIN: has privileges to create warehouses, databases, and other
+-- objects in an account. In a real-world environment you would use
+-- different roles for different tasks (see Module 10).
+--
+-- NOTE: This module has no SQL statements to run. Continue to
+-- 04-SQL-LAB-DATA-LAB-STOCK-PRICE-AND-SEC-FILINGS-DATA.sql.

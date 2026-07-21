@@ -1,0 +1,26 @@
+-- =====================================================================
+-- Module 04: Data Lab: Stock Price & SEC Filings Data
+-- Lab: Getting Started with Snowflake (Zero to Snowflake)
+-- =====================================================================
+--
+-- ---------------------------------------------------------------------
+-- Step 1: Review the Lab Story and Data Sources
+-- ---------------------------------------------------------------------
+-- The Lab Story
+-- --------------
+-- You work at a grocery retailer. You want to understand the
+-- performance of major consumer goods (CPG) companies in the US that
+-- supply your store. This lab looks at daily stock price data and
+-- quarterly/annual Securities Exchange Commission (SEC) company
+-- filings to understand the performance of the CPG landscape. Public
+-- companies are required to submit a quarterly and annual report to
+-- the SEC detailing their financial data.
+--
+-- We will collect data from three different sources:
+--   1. Load company metadata from a .csv file.               (Module 05)
+--   2. Load SEC filings from a semi-structured JSON format.   (Module 06)
+--   3. Use the Snowflake Marketplace to find free stock price data
+--      in "Snowflake Public Data (Free)".                     (Module 07)
+--
+-- NOTE: This module has no SQL statements to run. Continue to
+-- 05-SQL-LAB-LOADING-STRUCTURED-DATA-FROM-CSV.sql.

@@ -1,0 +1,42 @@
+-- =====================================================================
+-- Module 13: Conclusion & Next Steps
+-- Lab: Getting Started with Snowflake (Zero to Snowflake)
+-- =====================================================================
+--
+-- ---------------------------------------------------------------------
+-- Step 1: Review the Wrap-Up and Next Steps
+-- ---------------------------------------------------------------------
+-- Congratulations on completing this introductory lab! You've
+-- mastered the Snowflake basics and are ready to apply these
+-- fundamentals to your own data. Reference this guide whenever you
+-- need a refresher.
+--
+-- Continue your free trial by loading your own sample or production
+-- data and exploring more advanced Snowflake capabilities.
+--
+-- Additional Resources:
+--   - Snowsight docs: https://docs.snowflake.com/en/user-guide/ui-snowsight.html#using-snowsight
+--   - Definitive Guide to Maximizing Your Free Trial:
+--     https://www.snowflake.com/test-driving-snowflake-the-definitive-guide-to-maximizing-your-free-trial/
+--   - Snowflake events: https://www.snowflake.com/about/events/
+--   - Snowflake Community: https://community.snowflake.com/s/topic/0TO0Z000000wmFQWAY/getting-started-with-snowflake
+--   - Snowflake University: https://community.snowflake.com/s/article/Getting-Access-to-Snowflake-University
+--   - Contact Sales: https://www.snowflake.com/free-trial-contact-sales/
+--   - Snowflake Public Data on the Marketplace:
+--     https://app.snowflake.com/marketplace/providers/GZTSZAS2KCS/Snowflake%20Public%20Data%20Products
+--
+-- What we've covered:
+--   - How to create stages, databases, tables, views, and virtual
+--     warehouses.                                        (Modules 05, 06)
+--   - How to load structured and semi-structured data.    (Modules 05, 06)
+--   - How to consume Snowflake Public Data from the
+--     Snowflake Data Marketplace.                         (Module 07)
+--   - How to perform analytical queries, including joins
+--     between tables.                                     (Module 08)
+--   - How to clone objects.                                (Module 08)
+--   - How to undo user errors using Time Travel.            (Module 09)
+--   - How to create roles and users, and grant privileges. (Module 10)
+--   - How to securely and easily share data with other
+--     accounts.                                            (Module 11)
+--
+-- NOTE: This module is a wrap-up — there are no SQL statements to run.
